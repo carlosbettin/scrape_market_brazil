@@ -65,11 +65,11 @@ def bmf_taxas(d, m, y):
             result = 1
         
     # Os dados são armazenados em um dicionário
-    dic = {'dc' : dc , 'taxa_252' : di252 , 'taxa_360':di360}
+    dic = {'dc' : dias corridos , 'yield_252' : di252 , 'yield_360':di360}
     
     # De um dicionário são convertido para uma DataFrame, do pacote pandas
     data = pd.DataFrame(dic)
-    data.index = data['dc']
+    data.index = data['dias corridos']
     del data['dc']
    
     file_name = 'di_' + date2 + '.csv'
