@@ -17,7 +17,7 @@ def bmf_taxas(d, m, y):
     # a função datetime() converte as variáveis de entrada na estrutura datetime
     date = datetime(y, m, d)          
     
-    # O método .strftime() manipula a estrutra para de obter no formato desejado
+    # .strftime() manipula a estrutra para de obter no formato desejado
     date1 = datetime.strftime(date, '%d/%m/%Y')   
     
     date2 = datetime.strftime(date, '%Y%m%d')
@@ -25,7 +25,7 @@ def bmf_taxas(d, m, y):
     # A string url é o endereço do site que será usado como fonte de dados
     url = 'http://www2.bmf.com.br/pages/portal/bmfbovespa/boletim1/TxRef1.asp?Data='+date1+'&Data1='+date2+'&slcTaxa=PRE'
     
-    # o método .get() faz o request da url para o servidor
+    # .get() faz o request da url para o servidor
     response = requests.get(url)
     
     # A função BeautifulSoup converte o conteúdo da fonte da página requisitada em um objeto bs4, que pode ser manipulado com facilidade
@@ -74,7 +74,7 @@ def bmf_taxas(d, m, y):
    
     file_name = 'di_' + date2 + '.csv'
    
-    # O pacote pandas permite salvar os dados no formato csv
+    # Os dados são armazenados no formato csv, usando-se o método .to_csv()
     data.to_csv(file_name)
     
     return data
