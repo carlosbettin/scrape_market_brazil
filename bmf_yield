@@ -70,7 +70,7 @@ def bmf_taxas(d, m, y):
     # De um dicionário são convertido para uma DataFrame, do pacote pandas
     data = pd.DataFrame(dic)
     data.index = data['dias corridos']
-    del data['dis corridos']
+    del data['dias corridos']
    
     file_name = 'di_' + date2 + '.csv'
    
