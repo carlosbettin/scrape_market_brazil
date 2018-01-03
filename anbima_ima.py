@@ -9,8 +9,6 @@ import datetime
 from bs4 import BeautifulSoup
 
 def get_imas():
-   
-    ref = {'IMA-B':5,'IMA-B 5':4,'IMA-B 5+':6, 'IRF-M':7,'IRF-M 1':436, 'IRF-M 1+':438, 'IMA-C':439}
     
     url = 'http://www.anbima.com.br/ima/arqs/ima_completo.xml'
     r = requests.get(url)
@@ -33,9 +31,9 @@ def get_imas():
             CLS = float(i.find_all('TOTAL')[0]['T_Num_Indice'].replace(',','.'))
         except: continue    
 
-        yld_tup = (YLD, ref[INDICE], 'YLD', DT_REF)
-        dur_tup = (DUR, ref[INDICE], 'DUR', DT_REF)
-        niv_tup = (CLS, ref[INDICE], 'COT', DT_REF)
+        yld_tup = (YLD, INDICE, 'YLD', DT_REF)
+        dur_tup = (DUR, INDICE, 'DUR', DT_REF)
+        niv_tup = (CLS, INDICE, 'COT', DT_REF)
         lst.append(yld_tup)
         lst.append(dur_tup)
         lst.append(niv_tup)
